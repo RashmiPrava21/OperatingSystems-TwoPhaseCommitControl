@@ -1,0 +1,21 @@
+CC=g++ 
+ 
+CFLAGS=-std=c++11  
+ 
+LINK_THREAD=-pthread 
+ 
+EFLAGS=-o 
+ 
+all: client frontServer backendServer 
+ 
+client:  
+    $(CC) $(CFLAGS) $(EFLAGS) client client.cpp  
+ 
+frontServer:  
+    $(CC) $(CFLAGS) $(EFLAGS) frontserver frontServer.cpp $(LINK_THREAD) 
+ 
+backendServer: 
+    $(CC) $(CFLAGS) $(EFLAGS) backendserver backendServer.cpp $(LINK_THREAD) 
+ 
+clean: 
+    rm -rf *.o client frontserver backendserver
